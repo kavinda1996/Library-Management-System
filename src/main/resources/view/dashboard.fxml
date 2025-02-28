@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="523.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashBoardFromController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0c2e4d" height="523.0" layoutX="-8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="304.0" />
+      <JFXButton layoutX="18.0" layoutY="169.0" onAction="#btnCustomerFormOnAction" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: #ecf0f1;" text="Users">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="18.0" layoutY="228.0" onAction="#btnItemFormOnAction" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: #ecf0f1;" text="Books">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="17.0" layoutY="286.0" onAction="#btnOrderFormOnAction" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: #ecf0f1;" text="Borrowing">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane fx:id="loadFormContent" layoutX="299.0" prefHeight="523.0" prefWidth="606.0" style="-fx-background-size: cover;" styleClass="dashboard-colour2" stylesheets="@../css/style.css">
+         <children>
+            <ImageView fitHeight="402.0" fitWidth="462.0" layoutX="72.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+      
+                  <Image url="@../img/library.jpeg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <JFXButton layoutX="17.0" layoutY="341.0" onAction="#btnRegisterFormOnAction" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: #ecf0f1;" text="Librarians">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="4.0" layoutY="49.0" prefHeight="107.0" prefWidth="304.0" text="Library Management System" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="94.0" layoutY="429.0" text="library@gmail.com" textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="111.0" layoutY="444.0" text="+77889944561" textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="53.0" fitWidth="49.0" layoutX="117.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+
+         </image>
+      </ImageView>
+   </children>
+
+
+</AnchorPane>
