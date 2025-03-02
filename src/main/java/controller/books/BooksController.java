@@ -4,10 +4,8 @@ import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Books;
-import model.BorrowingDetail;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ public class BooksController implements BooksService {
     public Books searchItem(String code) {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM item WHERE code=" + "'" + code + "'");
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM books WHERE code=" + "'" + code + "'");
             resultSet.next();
             return new Books(
                     resultSet.getString(1),
@@ -50,15 +48,11 @@ public class BooksController implements BooksService {
         try {
             List<Books> itemList = new ArrayList<>();
             Connection connection = DBConnection.getInstance().getConnection();
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM item");
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM books");
 
             while (resultSet.next()) {
-                itemList.add(
+                boolean add = itemList.add(
                         new Books(
-                                resultSet.getString(1),
-                                resultSet.getString(2),
-                                resultSet.getDouble(3),
-                                resultSet.getInt(4)
                         )
                 );
             }
@@ -78,27 +72,29 @@ public class BooksController implements BooksService {
         return itemCodeList;
     }
 
-    public boolean updateStock(List<BorrowingDetail> orderDetails){
-        for (BorrowingDetail orderDetail:orderDetails){
-            boolean isUpdateStock = updateStock(orderDetail);
-            if (!isUpdateStock){
-                return false;
-            }
-        }
-        return true;
-    }
-    public boolean updateStock(BorrowingDetail orderDetail){
-        String SQL = "UPDATE item SET qtyOnHand = qtyOnHand-? WHERE code=?";
-        try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement psTm = connection.prepareStatement(SQL);
-            psTm.setObject(1,orderDetail.getQty());
-            psTm.setObject(2,orderDetail.getItemCode());
-            return psTm.executeUpdate()>0;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
+
+//    public boolean updateStock(List<BorrowingDetail> orderDetails){
+//        for (BorrowingDetail orderDetail:orderDetails){
+//            boolean isUpdateStock = updateStock(orderDetail);
+//            if (!isUpdateStock){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+//    public boolean updateStock(BorrowingDetail orderDetail){
+//        String SQL = "UPDATE item SET qtyOnHand = qtyOnHand-? WHERE code=?";
+//        try {
+//            Connection connection = DBConnection.getInstance().getConnection();
+//            PreparedStatement psTm = connection.prepareStatement(SQL);
+//            psTm.setObject(1,orderDetail.getQty());
+//            psTm.setObject(2,orderDetail.getItemCode());
+//            return psTm.executeUpdate()>0;
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
 
 }

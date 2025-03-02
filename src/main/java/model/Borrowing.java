@@ -5,14 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class Borrowing {
-    private String id;
-    private String date;
-    private String customerId;
-    private List<BorrowingDetail> orderDetails;
+    private String bookId;
+    private String description;
+    private String borrowedDate;
+    private String returnDate;
+    private String studentName;
+
 }

@@ -2,6 +2,7 @@ package controller;
 
 import javafx.event.ActionEvent;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
@@ -36,7 +37,7 @@ public class DashBoardFromController {
         loadFormContent.getChildren().add(load);
     }
 
-    public void btnOrderFormOnAction(ActionEvent actionEvent) throws IOException {
+   /* public void btnOrderFormOnAction(ActionEvent actionEvent) throws IOException {
         URL resource = this.getClass().getResource("/view/borrowing_form.fxml");
 
         assert resource != null;
@@ -45,7 +46,23 @@ public class DashBoardFromController {
 
         loadFormContent.getChildren().clear();
         loadFormContent.getChildren().add(load);
+    }*/
+
+    public void btnOrderFormOnAction(ActionEvent actionEvent) throws IOException {
+        URL resource = this.getClass().getResource("/view/borrowing_form.fxml");
+
+        if (resource == null) {
+            System.out.println("Error: FXML file not found!");
+            return;
+        }
+
+        FXMLLoader loader = new FXMLLoader(resource);
+        Parent load = load(resource);
+
+        loadFormContent.getChildren().clear();
+        loadFormContent.getChildren().add(load);
     }
+
 
     public void btnRegisterFormOnAction(ActionEvent actionEvent) throws IOException {
 
